@@ -1,0 +1,29 @@
+Quando usa injecao de dependecia utilizando Interfaces e Services, 
+primeiro colocar a interface no construtor do service
+depois precisa fazer o bind, que esta na pasta provider/appserviceproviders
+na funcao register 
+
+public function register()
+    {
+       $this->app->bind(UserRepositoryInterface::class,UserRepository::class);
+    }
+
+
+observe :
+	para gerar o id, quando for salvar ele vai inserir um id gerado automaticamente
+
+php artisan make:observer UserObserver --model=User
+
+apos implementar o metodo, precisa adicionar ele no Provider - EventServiceProvider no metodo boot
+User::observe(UserObserver::class);
+
+**lembrando quando pricesar carregar um arquivo para toda aplicacao, deve ir em composer.json e em "autoload"
+
+depois dar o comando composer dump-autoload
+
+images upload
+comando para poder utilizar a imagem na pasta app->public 
+php artisan storage:link
+
+deixar FILESYSTEM_DISK=local como public em .env
+
