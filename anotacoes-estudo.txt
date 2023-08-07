@@ -27,3 +27,10 @@ php artisan storage:link
 
 deixar FILESYSTEM_DISK=local como public em .env
 
+
+
+QUANDO FOR FAZER UM NOVO CRUD
+- Observers
+- MODEL 
+- PROVIDER APP
+- REGISTRAR O OBSERVER NO PROVIDER EventServiceProvider
