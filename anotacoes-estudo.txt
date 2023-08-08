@@ -19,7 +19,7 @@ User::observe(UserObserver::class);
 
 **lembrando quando pricesar carregar um arquivo para toda aplicacao, deve ir em composer.json e em "autoload"
 
-depois dar o comando composer dump-autoload
+depois dar o comando: composer dump-autoload
 
 images upload
 comando para poder utilizar a imagem na pasta app->public 
@@ -34,3 +34,9 @@ QUANDO FOR FAZER UM NOVO CRUD
 - MODEL 
 - PROVIDER APP
 - REGISTRAR O OBSERVER NO PROVIDER EventServiceProvider
+
+
+
+para debugar: 
+composer require barryvdh/laravel-debugbar --dev
+php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"

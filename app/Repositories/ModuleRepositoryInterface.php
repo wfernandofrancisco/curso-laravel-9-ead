@@ -4,9 +4,9 @@ namespace App\Repositories;
 
 interface ModuleRepositoryInterface
 {
-    public function getAll(string $filter = null): array;
+    public function getAllByCourseId(string $courseId, string $filter = null);
     public function findById(string $id): ?object;
-    public function create(array $data): object;
+    public function createByCourseId(string $courseId, array $data): object;
     public function update(string $id, array $data): ?object;
     public function delete(string $id): bool;
 }
