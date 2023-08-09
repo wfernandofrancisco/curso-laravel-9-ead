@@ -10,12 +10,18 @@ class Lesson extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'url', 'video'
+        'name', 'description', 'url', 'video', 'module_id'
+    ];
+
+    protected $casts = [
+        'id' => 'string',
     ];
 
     public function module()
     {
         return $this->belongsTo(Module::class);
     }
+
+    public $incrementing = false;
 
 }

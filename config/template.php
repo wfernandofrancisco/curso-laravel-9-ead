@@ -23,9 +23,9 @@ return [
             'icon' => 'fas fa-graduation-cap'
         ],
         [
-            'name' => 'Formulários',
-            'url' => '/admin/tabelas',
-            'icon' => 'fas fa-table'
+            'name' => 'Suporte',
+            'url' => '/admin/supports',
+            'icon' => 'fas fa-headset'
         ],
         [
             'name' => 'Sair',

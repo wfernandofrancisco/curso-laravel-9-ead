@@ -27,8 +27,6 @@ class Course extends Model
      *
      * @var bool
      */
-    public $incrementing = false;
-
     /**
      * The attributes that should be cast.
      *
@@ -37,6 +35,8 @@ class Course extends Model
     protected $casts = [
         'id' => 'string',
     ];
+
+    public $incrementing = false;
 
     protected function image(): Attribute
     {

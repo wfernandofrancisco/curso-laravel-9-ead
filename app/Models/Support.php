@@ -12,4 +12,21 @@ class Support extends Model
     protected $fillable = [
         'status', 'description', 'user_id', 'lesson_id'
     ];
+
+    public $incrementing = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(ReplySupport::class);
+    }
 }

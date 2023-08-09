@@ -45,7 +45,7 @@
                         </div>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <a href="{{ route('modules.show', [$course->id, $module->id]) }}">
+                        <a href="{{ route('lessons.index', $module->id) }}">
                             <span
                                 class="relative inline-block px-3 py-1 font-semibold text-blue-900 leading-tight">
                                 <span aria-hidden

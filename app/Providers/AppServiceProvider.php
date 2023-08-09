@@ -5,14 +5,20 @@ namespace App\Providers;
 use App\Repositories\Eloquent\{
     AdminRepository,
     CourseRepository,
+    LessonRepository,
     UserRepository,
-    ModuleRepository
+    ModuleRepository,
+    ReplySupportRepository,
+    SupportRepository
 };
 use App\Repositories\{
     AdminRepositoryInterface,
     CourseRepositoryInterface,
+    LessonRepositoryInterface,
     ModuleRepositoryInterface,
-    UserRepositoryInterface
+    ReplySupportRepositoryInterface,
+    UserRepositoryInterface,
+    SupportRepositoryInterface
 };
 use Illuminate\Support\ServiceProvider;
 
@@ -43,6 +49,21 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             ModuleRepositoryInterface::class,
             ModuleRepository::class,
+        );
+
+        $this->app->singleton(
+            LessonRepositoryInterface::class,
+            LessonRepository::class,
+        );
+
+        $this->app->singleton(
+            SupportRepositoryInterface::class,
+            SupportRepository::class,
+        );
+
+        $this->app->singleton(
+            ReplySupportRepositoryInterface::class,
+            ReplySupportRepository::class,
         );
     }
 

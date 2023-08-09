@@ -40,3 +40,28 @@ QUANDO FOR FAZER UM NOVO CRUD
 para debugar: 
 composer require barryvdh/laravel-debugbar --dev
 php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
+
+para entrar no bash do docker para dar comando php: docker-compose exec app bash
+
+------------
+trabalhar com autenticacao 
+documentacao : https://laravel.com/docs/9.x/starter-kits
+
+primeiro comando: 
+
+composer require laravel/breeze --dev
+php artisan breeze:install
+rodar npm install e npm run dev obs. qdo for subir na producao, rodar npm run build
+
+
+
+PARA CRIAR EVENTOS: php artisan make:event 
+
+COMANDO PARA CRIAR LISTENET E ASSOCIAR ELE A UM EVENTO: php artisan make:listener SendEmailSupportReplied --event=SupportReplied
+DEPOIS É NECESSARIO INFORMAR O EVENTO  E A AÇÕES EM PROVIDER/EVENTSERIVCE NO METODO LISTEN()
+
+COMANDO PARA CRIAR EMAIL E A VIEW PERSONALIZACAO : php artisan make:mail SendMailSupportReplied --markdown=mails.supports.support-replied
+
+site mailtrap - usa para enviar email, verificar , curso laravel 9 ead - ultimo modulo aula 8
+
+//SYNC roda de forma que espera mandar o email para poder mexer, já o redis coloca na fila e ja libera o usuario mesmo sem 

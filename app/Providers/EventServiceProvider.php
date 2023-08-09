@@ -2,25 +2,35 @@
 
 namespace App\Providers;
 
+use App\Events\SupportReplied;
+use App\Listeners\SendMailSupportReplied;
 use App\Models\{
     Admin,
     Course,
+    Lesson,
+    ReplySupport,
     User
 };
 use App\Observers\{
     AdminObserver,
     CourseObserver,
+    LessonObserver,
+    ReplySupportObserver,
     UserObserver
 };
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Illuminate\Auth\Events\{
+    Registered
+};
+use Illuminate\Auth\Listeners\{
+    SendEmailVerificationNotification
+};
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
     /**
-     * The event to listener mappings for the application.
+     * The event listener mappings for the application.
      *
      * @var array<class-string, array<int, class-string>>
      */
@@ -28,6 +38,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        SupportReplied::class => [
+            SendMailSupportReplied::class,
+        ]
     ];
 
     /**
@@ -40,6 +54,8 @@ class EventServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         Admin::observe(AdminObserver::class);
         Course::observe(CourseObserver::class);
+        Lesson::observe(LessonObserver::class);
+        ReplySupport::observe(ReplySupportObserver::class);
     }
 
     /**
